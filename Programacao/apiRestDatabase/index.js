@@ -7,7 +7,6 @@ app.use(express.json());
 const PORT = 8080;
 app.listen(PORT, () => console.log(`Server running on port 8080`));
 
-
 app.get("/alunos/all", (req, res) => {
     res.status(200).send(alunos);
 });
@@ -94,5 +93,31 @@ app.post("/curso/editCurso", (req, res) =>{
         
     } catch (error) {
         res.status(404).send("Não foi possível encontrar o curso.");
+    }
+})
+
+const alunoswhitCourse = alunos.map(aluno =>{
+    const relation = id_aluno_Curso.find(relation =>relation.alunoId === aluno.id);
+    let nameCourse = null;
+    if(relation){
+        const courseSearch = curso.find(course => course.id === relation.cursoId);
+        if (courseSearch) {
+            nameCourse = courseSearch.name;
+        }
+    }
+})
+
+app.post("/curso/aluno", (req, res) =>{
+    const idCourse = parseInt(req.body.id_Curso);
+    const idAluno = parseInt(req.body.id_Aluno);
+    try {
+        if (!idCourse || !idAluno) {
+            res.status(412).send("Informações faltantes!!");
+        }
+        const newRelationCourse = {idCourse : id_Curso, idAluno: id_Aluno};
+        id_aluno_Curso.push(newRelationCourse);
+        res.status(200).send(id_aluno_Curso);
+    } catch (error) {
+        res.status(400).send("Informações ou dados errados");
     }
 })
