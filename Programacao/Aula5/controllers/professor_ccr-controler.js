@@ -1,5 +1,5 @@
 const express = require("express");
-const professorCcrSrvice = require("../services/professorCcr-service");
+const professorCcrService = require("../services/professorCcr-service");
 
 const professorCcrRouter = express.Router();
 
@@ -7,13 +7,13 @@ const professorCcrRouter = express.Router();
 professorCcrRouter.post("/", professorCcrService.criaProfessorCcr);
 
 // GET /professorCcrs - Retornar todas as professorCcrs
-professorCcrRouter.get("/", professorCcrService.retornaprofessorCcr);
+professorCcrRouter.get("/todos", professorCcrService.retornaTodosprofessorCcrs);
 
-// GET /professorCcr/:id_professor - Retornar todas as ccrs do professor
-professorCcrRouter.get("/aluno/:id_professor", professorCcrService.retornaProfessorCcr);
+// GET /professorCcr/professor/:id_professor - Retornar todas as ccrs do professor
+professorCcrRouter.get("/professor/:id_professor", professorCcrService.retornaprofessorCcr);
 
-// GET /professorCcr/:id_ccr - Retornar todos os professores do ccr
-professorCcrRouter.get("/curso/:id_ccr", professorCcrService.retornaTodosprofessorCcrs);
+// GET /professorCcr/ccr/:id_ccr - Retornar todos os professores do ccr
+professorCcrRouter.get("/ccr/:id_ccr", professorCcrService.retornaTodosprofessorCcrs);
 
 // PUT /professorCcr/:id_professor - Atualizar professorCcr
 professorCcrRouter.put("/:Id_professor", professorCcrService.atualizaprofessorCcr);

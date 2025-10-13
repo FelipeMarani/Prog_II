@@ -7,7 +7,7 @@ const matriculaRouter = express.Router();
 matriculaRouter.post("/", matriculaService.criaMatricula);
 
 // GET /matriculas - Retornar todas as matriculas
-matriculaRouter.get("/", matriculaService.retornaTodasMatriculas);
+matriculaRouter.get("/todos", matriculaService.retornaTodasMatriculas);
 
 // GET /matricula/:id_aluno - Retornar todas as matriculas do aluno
 matriculaRouter.get("/aluno/:id_aluno", matriculaService.retornaMatriculaAluno);

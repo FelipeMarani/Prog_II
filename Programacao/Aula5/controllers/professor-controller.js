@@ -6,7 +6,7 @@ const professorRouter = express.Router();
 // POST /professor - Criar novo professor
 professorRouter.post("/", professorService.criaProfessor);
 
-// GET /professors - Retornar todos os professors
+// GET /professor - Retornar todos os professors
 professorRouter.get("/todos", professorService.retornaTodosProfessores);
 
 // GET /professor/:id - Retornar professor por ID

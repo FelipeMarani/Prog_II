@@ -15,23 +15,23 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             sequelize,
-            TableName: "professor_ccr",
+            tableName: "professor_ccr",
             schema: "public",
-            freeseTableName: true,
+            freezeTableName: true,
             timestamps: false,
         },
     );
 
     ProfessorCcr.associate = function (models) {
-        ProfessorCcr.belongsTo(models.Professor, {
-            foreinKey: "id_professor",
+        ProfessorCcr.belongsTo(models.professor, {
+            foreignKey: "id_professor",
             sourceKey: "id",
         });
-        ProfessorCcr.belongsTo(models.Ccr, {
-            foreinKey: "id_ccr",
+        ProfessorCcr.belongsTo(models.CCR, {
+            foreignKey: "id_ccr",
             sourceKey: "id",
         });
     };
 
     return ProfessorCcr;
-}
+};

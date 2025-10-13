@@ -20,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
 		},
 	);
 
-	// professor.associate = function (models) {
-	// 	professor.hasMany(models.professor_ccr, {
-	// 		foreignKey: "id_professor",
-	// 		sourceKey: "id",
-	// 	});
-	// };
+	professor.associate = function (models) {
+		professor.hasMany(models.ProfessorCcr, {
+			foreignKey: "id_professor",
+			sourceKey: "id",
+		});
+	};
 
 	return professor;
 };
