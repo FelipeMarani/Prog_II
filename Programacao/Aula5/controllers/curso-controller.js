@@ -7,7 +7,7 @@ const cursoRouter = express.Router();
 cursoRouter.post("/", cursoService.criaCurso);
 
 // GET /cursos - Retornar todos os cursos
-cursoRouter.get("/todos", cursoService.retornaTodosCursos);
+// // cursoRouter.get("/todos", cursoService.retornaTodosCursos);
 
 // GET /curso/:id - Retornar curso por ID
 cursoRouter.get("/:id", cursoService.retornaCursoPorId);
@@ -19,3 +19,4 @@ cursoRouter.put("/:id", cursoService.atualizaCurso);
 cursoRouter.delete("/:id", cursoService.deletaCurso);
 
 module.exports = cursoRouter;
+
